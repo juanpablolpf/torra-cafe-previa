@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Torra Café | Aldeota, Fortaleza</title>
+<meta name="description" content="Torra Café: cafés filtrados em onze métodos, chás, bruschettas e prato feito do café da manhã. Rua Sabino Pires, 17, Aldeota, Fortaleza.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@75..150,500..900&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --ground: #EEF3EF;
+    --paper: #FFFFFF;
+    --ink: #2A1A12;
+    --muted: #65574E;
+    --line: #D3DDD6;
+    --coral: #D45B3B;
+    --coral-ink: #FFFFFF;
+    --teal: #1D6F69;
+    --teal-ink: #EAF6F3;
+    --display: "Anybody", "Arial Black", "Segoe UI", sans-serif;
+    --body: "Work Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1; text-wrap: balance; }
+  .wrap { max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+
+  .preview-bar { background: var(--ink); color: var(--ground); text-align: center; font-size: .88rem; padding: 8px 16px; line-height: 1.4; }
+
+  .top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--ground) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+  .logo { font-family: var(--display); font-weight: 900; font-stretch: 130%; font-size: 1.5rem; text-decoration: none; letter-spacing: -.01em; }
+  .top nav { display: flex; align-items: center; gap: 26px; }
+  .top nav a { text-decoration: none; color: var(--muted); font-size: .98rem; }
+  .top nav a:hover { color: var(--ink); }
+  .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 1rem; padding: 11px 22px; border-radius: 10px; background: var(--coral); color: var(--coral-ink); border: 2px solid var(--coral); }
+  .btn:hover { filter: brightness(1.06); }
+  .btn-line { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-line:hover { background: var(--ink); color: var(--ground); filter: none; }
+  .top nav .btn { color: var(--coral-ink); padding: 8px 16px; font-size: .95rem; }
+  .menu-toggle { display: none; background: none; border: 2px solid var(--ink); color: var(--ink); border-radius: 10px; padding: 6px 14px; font: inherit; font-weight: 600; font-size: .95rem; cursor: pointer; }
+  @media (max-width: 760px) {
+    .menu-toggle { display: inline-block; }
+    .top nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--ground); border-bottom: 1px solid var(--line); padding: 8px 24px 20px; }
+    .top nav a { padding-block: 12px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+    .top nav .btn { margin-top: 16px; text-align: center; border-bottom: 2px solid var(--coral); padding: 12px; }
+  }
+
+  .hero { display: grid; grid-template-columns: 1fr; gap: 40px; padding-block: 48px 72px; }
+  @media (min-width: 960px) { .hero { grid-template-columns: 6fr 5fr; align-items: center; padding-block: 72px 104px; } }
+  .award { display: inline-flex; align-items: center; gap: 10px; background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 16px 6px 6px; font-size: .92rem; font-weight: 500; margin-bottom: 28px; }
+  .award b { background: var(--coral); color: var(--coral-ink); border-radius: 999px; width: 30px; height: 30px; display: grid; place-items: center; font-family: var(--display); font-weight: 900; font-size: .95rem; flex: none; }
+  .hero h1 { font-weight: 850; font-stretch: 112%; font-size: clamp(2.6rem, 6.2vw, 4.6rem); letter-spacing: -.02em; margin-bottom: 22px; }
+  .hero .lede { color: var(--muted); font-size: 1.18rem; max-width: 31em; margin-bottom: 30px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .methods { background: var(--teal); color: var(--teal-ink); border-radius: 20px; padding: 28px; position: relative; overflow: hidden; }
+  .methods::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
+  .methods p { position: relative; font-size: .95rem; margin-bottom: 14px; opacity: .9; }
+  .methods ul { position: relative; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .methods li { font-family: var(--display); font-weight: 800; font-stretch: 125%; font-size: clamp(1.4rem, 3.2vw, 2.1rem); line-height: 1.12; }
+  .methods li:nth-child(3n+2) { color: #FFD3C4; }
+
+  section.block { padding-block: 80px; border-top: 2px solid var(--ink); }
+  .block h2.title { font-weight: 850; font-stretch: 115%; font-size: clamp(2.2rem, 4.8vw, 3.4rem); letter-spacing: -.02em; margin-bottom: 14px; }
+  .block .intro { color: var(--muted); max-width: 38em; margin-bottom: 36px; }
+
+  .photos-block { padding-block: 0 80px; }
+  .photos { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 820px) { .photos { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+  .photos li { border-radius: 16px; overflow: hidden; border: 2px solid var(--ink); background: var(--paper); }
+  .photos li:nth-child(2) { transform: translateY(18px); }
+  .photos li:nth-child(4) { transform: translateY(18px); }
+  .photos img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+  .credit { margin-top: 30px; font-size: .85rem; color: var(--muted); }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
+  .tabs button { font: inherit; font-weight: 600; font-size: .98rem; cursor: pointer; padding: 9px 18px; border-radius: 10px; background: var(--paper); color: var(--ink); border: 2px solid var(--ink); }
+  .tabs button[aria-selected="true"] { background: var(--ink); color: var(--ground); }
+  .dishes { list-style: none; display: grid; grid-template-columns: 1fr; gap: 0 48px; }
+  @media (min-width: 820px) { .dishes { grid-template-columns: 1fr 1fr; } }
+  .dishes li { padding-block: 18px; border-bottom: 1px solid var(--line); }
+  .dishes h3 { font-weight: 800; font-stretch: 110%; font-size: 1.3rem; margin-bottom: 4px; }
+  .dishes p { color: var(--muted); max-width: 32em; }
+  .menu-note { margin-top: 24px; font-size: .95rem; color: var(--muted); }
+
+  .house { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 900px) { .house { grid-template-columns: 1fr 1fr; gap: 64px; } }
+  .house p { color: var(--muted); max-width: 34em; }
+  .house p + p { margin-top: 14px; }
+  .facts { list-style: none; display: grid; gap: 12px; }
+  .facts li { background: var(--paper); border: 2px solid var(--ink); border-radius: 14px; padding: 16px 18px; }
+  .facts strong { display: block; font-family: var(--display); font-weight: 800; font-stretch: 110%; font-size: 1.2rem; }
+  .facts span { color: var(--muted); font-size: .98rem; }
+
+  .visit { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 900px) { .visit { grid-template-columns: 1fr 1fr; gap: 64px; } }
+  .address { font-family: var(--display); font-weight: 800; font-stretch: 110%; font-size: clamp(1.6rem, 3.4vw, 2.3rem); line-height: 1.15; margin-bottom: 14px; }
+  .contact-note { color: var(--muted); margin-bottom: 22px; }
+  .hours { width: 100%; border-collapse: collapse; }
+  .hours caption { text-align: left; font-weight: 600; margin-bottom: 6px; }
+  .hours th, .hours td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--line); font-weight: 400; }
+  .hours th { color: var(--muted); padding-right: 16px; white-space: nowrap; }
+  .hours tr.today th, .hours tr.today td { color: var(--coral); font-weight: 600; }
+  .status { margin-top: 14px; color: var(--muted); }
+  .status b { color: var(--ink); }
+  .map { margin-top: 44px; border: 2px solid var(--ink); border-radius: 18px; overflow: hidden; }
+  .map iframe { display: block; width: 100%; height: clamp(280px, 45vw, 420px); border: 0; }
+
+  footer { border-top: 2px solid var(--ink); padding-block: 28px 40px; color: var(--muted); font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  @media (max-width: 480px) { .wrap { padding-inline: 16px; } .methods { padding: 22px; } .actions .btn { flex: 1 1 auto; text-align: center; } }
+</style>
+</head>
+<body>
+  <div class="preview-bar">Proposta de site para o Torra Café, criada por Juan Filho. Aguardando aprovação.</div>
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#inicio">torra café</a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Seções">
+        <a href="#cardapio">Cardápio</a>
+        <a href="#casa">A casa</a>
+        <a href="#visite">Visite</a>
+        <a class="btn" href="https://ig.me/m/amotorracafe" target="_blank" rel="noopener">Falar com a gente</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <div class="wrap hero">
+      <div>
+        <p class="award"><b>1º</b>Mais votada pelo público no Melhores Sabores da Cidade 2025</p>
+        <h1>Um café pra conversar, aprender e se sentir na casa dos amigos.</h1>
+        <p class="lede">Cafés filtrados em onze métodos, chás de origem, bruschettas e prato feito de café da manhã, numa casa colorida na Aldeota. Não precisa reservar.</p>
+        <div class="actions">
+          <a class="btn" href="#cardapio">Ver o cardápio</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/dir/?api=1&destination=Torra+Caf%C3%A9%2C+Rua+Sabino+Pires%2C+17%2C+Aldeota%2C+Fortaleza+-+CE" target="_blank" rel="noopener">Como chegar</a>
+        </div>
+      </div>
+      <div class="methods" aria-label="Métodos de café filtrado">
+        <p>Seu café filtrado, do jeito que você escolher:</p>
+        <ul>
+          <li>Hario V60</li><li>Kalita</li><li>Origami</li><li>Koar</li><li>Aeropress</li><li>Chemex</li>
+          <li>Clever</li><li>Cafflano</li><li>Vietnamita</li><li>Prensa francesa</li><li>Turco</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="photos-block" aria-label="Fotos do Torra Café">
+      <div class="wrap">
+        <ul class="photos">
+          <li><img src="fotos/fachada.jpg" alt="Fachada do Torra Café, com parede coral, portão escuro e plantas na entrada" width="480" height="640"></li>
+          <li><img src="fotos/prato-feito.jpg" alt="Prato feito de café da manhã com pães, tomates, frios e potinhos de acompanhamento" width="480" height="640" loading="lazy"></li>
+          <li><img src="fotos/mesa.jpg" alt="Mesa de azulejos verde-água com pratos, bruschettas e bebidas" width="360" height="640" loading="lazy"></li>
+          <li><img src="fotos/croissant.jpg" alt="Croissant, rabanada com morangos e queijo assado com potinhos de geleia" width="361" height="640" loading="lazy"></li>
+        </ul>
+        <p class="credit">Fotos: <a href="https://www.instagram.com/amotorracafe/" target="_blank" rel="noopener">@amotorracafe</a></p>
+      </div>
+    </section>
+
+    <section id="cardapio" class="block">
+      <div class="wrap">
+        <h2 class="title">Cardápio</h2>
+        <p class="intro">Uma seleção da carta da casa. Tem opções vegetarianas, veganas e sem lactose, e dá para trocar o leite por leite vegetal.</p>
+        <div class="tabs" role="tablist" aria-label="Partes do cardápio">
+          <button role="tab" id="t1" aria-controls="c1" aria-selected="true">Café</button>
+          <button role="tab" id="t2" aria-controls="c2" aria-selected="false" tabindex="-1">Chás</button>
+          <button role="tab" id="t3" aria-controls="c3" aria-selected="false" tabindex="-1">Pra comer</button>
+          <button role="tab" id="t4" aria-controls="c4" aria-selected="false" tabindex="-1">Doces</button>
+        </div>
+        <div role="tabpanel" id="c1" aria-labelledby="t1">
+          <ul class="dishes">
+            <li><h3>Carta de filtrados</h3><p>Onze métodos para escolher, de 150 ml a 600 ml conforme o método. Pergunte os grãos disponíveis.</p></li>
+            <li><h3>Cappuccino da casa</h3><p>Receita cremosa da casa, 180 ml.</p></li>
+            <li><h3>Flat white</h3><p>Extração dupla de café e leite, 180 ml.</p></li>
+            <li><h3>Cortado</h3><p>Café cortado com leite, 120 ml.</p></li>
+            <li><h3>Orange coffee</h3><p>Suco de laranja, espresso e gelo.</p></li>
+            <li><h3>Espresso tônica</h3><p>Água tônica, café, gelo e limão.</p></li>
+            <li><h3>Shakerato</h3><p>Limão, espresso, gelo e açúcar.</p></li>
+            <li><h3>Affogato</h3><p>Café, chocolate ou cappuccino sobre sorvete de creme e chantilly.</p></li>
+          </ul>
+        </div>
+        <div role="tabpanel" id="c2" aria-labelledby="t2" hidden>
+          <ul class="dishes">
+            <li><h3>Chai latte</h3><p>Chá preto, especiarias, leite e caramelo de açúcar.</p></li>
+            <li><h3>Honey matcha latte</h3><p>Chá verde japonês em pó com leite de aveia e mel.</p></li>
+            <li><h3>Iced matcha latte de morango</h3><p>Matcha com leite de morango e chantilly de morango.</p></li>
+            <li><h3>Chai masala artesanal</h3><p>Chá preto assam, anis-estrelado, pimenta, cardamomo, canela, cravo e sementes de coentro.</p></li>
+            <li><h3>Tarde parisiense</h3><p>Chá verde aromatizado naturalmente com rosas.</p></li>
+            <li><h3>Genmaicha</h3><p>Chá verde japonês com arroz tostado.</p></li>
+          </ul>
+        </div>
+        <div role="tabpanel" id="c3" aria-labelledby="t3" hidden>
+          <ul class="dishes">
+            <li><h3>Prato feito Torra</h3><p>Três montagens de café da manhã, com pães artesanais, ovos, croissant ou rabanada, e acompanhamentos nos potinhos para escolher.</p></li>
+            <li><h3>Ovos no purgatório</h3><p>Três ovos no molho de tomate da casa, ricota e dois tipos de pães artesanais.</p></li>
+            <li><h3>Bruschettas</h3><p>Caprese, brie, abacate, pesto, parma, pepperoni, carne de sol ou veggie.</p></li>
+            <li><h3>Croissants recheados</h3><p>De brie com geleia a carne de sol com geleia de cebola, ou doce, com pistache e morango.</p></li>
+            <li><h3>Panquecas</h3><p>Frango, carne de sol ou a versão leve, com creme de ricota e tomate seco.</p></li>
+            <li><h3>Quiche do dia</h3><p>Pergunte o sabor do dia.</p></li>
+          </ul>
+        </div>
+        <div role="tabpanel" id="c4" aria-labelledby="t4" hidden>
+          <ul class="dishes">
+            <li><h3>Torta de goiabada</h3><p>Pode vir com sorvete de parmesão.</p></li>
+            <li><h3>Rabanada</h3><p>De frutas vermelhas, ou de pistache e morango.</p></li>
+            <li><h3>Cheesecake individual</h3><p>Frutas vermelhas, maracujá, pistache, goiabada, caramelo salgado e outros sabores.</p></li>
+            <li><h3>Bolo de chocolate</h3><p>Fatia de bolo de chocolate.</p></li>
+          </ul>
+        </div>
+        <p class="menu-note">Os itens mudam de tempos em tempos. Confira a carta completa e os valores na casa.</p>
+      </div>
+    </section>
+
+    <section id="casa" class="block">
+      <div class="wrap house">
+        <div>
+          <h2 class="title">A casa</h2>
+          <p>O Torra nasceu para ser um lugar de conversa e de aprender sobre café, valorizando produtores locais e contando de onde vem cada produto servido.</p>
+          <p>Em 2025, foi a cafeteria mais votada pelo público no prêmio Melhores Sabores da Cidade, em Fortaleza.</p>
+        </div>
+        <ul class="facts">
+          <li><strong>Pet friendly</strong><span>Seu cachorro é bem-vindo.</span></li>
+          <li><strong>Sem reserva</strong><span>É só chegar, inclusive no fim de semana.</span></li>
+          <li><strong>A cozinha fecha 1 hora antes</strong><span>Chegue com tempo se quiser comer.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="visite" class="block">
+      <div class="wrap visit">
+        <div>
+          <h2 class="title">Visite</h2>
+          <p class="address">Rua Sabino Pires, 17<br>Aldeota, Fortaleza, CE</p>
+          <p class="contact-note">O atendimento é pelo direct do Instagram <a href="https://www.instagram.com/amotorracafe/" target="_blank" rel="noopener">@amotorracafe</a>.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Torra+Caf%C3%A9%2C+Rua+Sabino+Pires%2C+17%2C+Aldeota%2C+Fortaleza+-+CE" target="_blank" rel="noopener">Como chegar</a>
+            <a class="btn btn-line" href="https://ig.me/m/amotorracafe" target="_blank" rel="noopener">Mandar mensagem</a>
+          </div>
+        </div>
+        <div>
+          <table class="hours">
+            <caption>Horários</caption>
+            <tbody id="hours-body"></tbody>
+          </table>
+          <p class="status" id="status" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="map"><iframe title="Mapa com a localização do Torra Café" src="https://www.google.com/maps?q=Torra+Caf%C3%A9,+Rua+Sabino+Pires,+17,+Aldeota,+Fortaleza+-+CE&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>torra café</span><span>Rua Sabino Pires, 17, Aldeota, Fortaleza</span></div></footer>
+
+  <script>
+    // Horários em minutos desde 0h. Domingo = 0.
+    var HOURS = { 0: [[480, 1260]], 1: [], 2: [[720, 1260]], 3: [[720, 1260]], 4: [[720, 1260]], 5: [[720, 1260]], 6: [[480, 1260]] };
+    var DAYS = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+  </script>
+  <script>
+    (function () {
+      function fmt(m) { var h = Math.floor(m / 60) % 24, mm = m % 60; return (m >= 1440 ? "0" : h) + "h" + (mm ? String(mm).padStart(2, "0") : ""); }
+      function label(r) { return r.length ? r.map(function (x) { return fmt(x[0]) + " às " + fmt(x[1]); }).join(" e ") : "Fechado"; }
+      var now = new Date(Date.now() - 3 * 3600 * 1000), day = now.getUTCDay(), mins = now.getUTCHours() * 60 + now.getUTCMinutes();
+      var body = document.getElementById("hours-body"), html = "";
+      for (var d = 0; d < 7; d++) html += "<tr" + (d === day ? " class='today'" : "") + "><th scope='row'>" + DAYS[d] + "</th><td>" + label(HOURS[d]) + "</td></tr>";
+      body.innerHTML = html;
+      var open = HOURS[day].filter(function (r) { return mins >= r[0] && mins < r[1]; })[0];
+      var el = document.getElementById("status");
+      if (open) { el.innerHTML = "<b>Aberto agora.</b> Fecha às " + fmt(open[1]) + "."; return; }
+      var later = HOURS[day].filter(function (r) { return r[0] > mins; })[0];
+      if (later) { el.innerHTML = "<b>Fechado agora.</b> Abre hoje às " + fmt(later[0]) + "."; return; }
+      for (var i = 1; i <= 7; i++) { var nd = (day + i) % 7; if (HOURS[nd].length) { el.innerHTML = "<b>Fechado agora.</b> Abre " + (i === 1 ? "amanhã" : DAYS[nd].toLowerCase()) + " às " + fmt(HOURS[nd][0][0]) + "."; return; } }
+    })();
+
+    var toggle = document.getElementById("menu-toggle"), nav = document.getElementById("nav");
+    function setMenu(open) { toggle.setAttribute("aria-expanded", open); toggle.textContent = open ? "Fechar" : "Menu"; nav.hidden = !open; }
+    var mq = window.matchMedia("(max-width: 760px)");
+    function syncMenu() { if (mq.matches) setMenu(false); else nav.hidden = false; }
+    mq.addEventListener ? mq.addEventListener("change", syncMenu) : mq.addListener(syncMenu);
+    syncMenu();
+    toggle.addEventListener("click", function () { setMenu(nav.hidden); });
+    nav.addEventListener("click", function (e) { if (e.target.closest("a") && mq.matches) setMenu(false); });
+
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+    function select(tab) { tabs.forEach(function (t) { var on = t === tab; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; document.getElementById(t.getAttribute("aria-controls")).hidden = !on; }); }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab); });
+      tab.addEventListener("keydown", function (e) { var n = e.key === "ArrowRight" ? tabs[(i + 1) % tabs.length] : e.key === "ArrowLeft" ? tabs[(i - 1 + tabs.length) % tabs.length] : null; if (n) { e.preventDefault(); select(n); n.focus(); } });
+    });
+  </script>
+</body>
+</html>
